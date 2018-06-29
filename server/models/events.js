@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var PrideEvent = mongoose.model('PrideEvent', {
+var PrideSchema = Schema({
   name: {
       type: String,
       required: true,
@@ -28,5 +29,7 @@ var PrideEvent = mongoose.model('PrideEvent', {
       trim: true
     }
 });
+
+var PrideEvent = mongoose.model('PrideEvent', PrideSchema);
 
 module.exports = {PrideEvent};

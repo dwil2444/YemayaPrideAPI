@@ -13,10 +13,20 @@ var app = express();
 
 app.use(bodyParser.json());
 
-app.get('/prideEvent', (req, res) => {
-  PrideEvent.find().then((prideEvents) => {
-    console.log(res);
-    res.send({prideEvents})
+app.get('/PrideEvent', (req, res) => {
+  PrideEvent.find().then((prideEvent) => {
+    res.send({prideEvent})
+  }, (e) => {
+    res.status(400).send(e);
+  });
+});
+
+app.post('/PrideEvent', (req, res) =>{
+  var event = new PrideEvent({
+    name: req.body.name
+  });
+  event.save().then((doc) => {
+    res.status(200).send(doc);
   }, (e) => {
     res.status(400).send(e);
   });
