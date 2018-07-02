@@ -14,7 +14,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 const routes = express();
 
-app.use('/', express.static(__dirname + './../webpage'));
+app.use('/', express.static(__dirname + './../docs'));
 
 
 app.use(bodyParser.json());
