@@ -13,6 +13,15 @@ const port = process.env.PORT || 3000;
 
 var app = express();
 
+app.use('/', express.static(__dirname + '/webpage'));
+
+app.get('/',(req, res) => {
+  res.render('index.html', {
+    pageTitle: 'Home Page',
+    welcomeMessage: 'Welcome to D12 World!'
+  });
+});
+
 app.use(bodyParser.json());
 
 app.post('/user', (req, res) => {
