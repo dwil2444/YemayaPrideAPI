@@ -10,6 +10,6 @@ The responsive layout is built from the creative one-page bootstrap template:
 http://www.ypride.me
 
 
-### or use the api deployed at the following endpoint:
+### or use the API deployed at the following endpoint:
 
 http://www.ypride.me/api
