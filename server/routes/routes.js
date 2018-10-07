@@ -12,7 +12,7 @@ var authentication = require('./../middleware/authentication');
 
 routes.use(bodyParser.json());
 
-routes.post('/user', async (req, res) => {
+routes.post('/signup', async (req, res) => {
   try {
     var body = _.pick(req.body, ["email", "password"]);
     var user = new User(body);
