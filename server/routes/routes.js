@@ -12,13 +12,16 @@ var authentication = require('./../middleware/authentication');
 
 routes.use(bodyParser.json());
 
-routes.post('/user', async (req, res) => {
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+routes.post('/signup', urlencodedParser, async (req, res) => {
   try {
     var body = _.pick(req.body, ["email", "password"]);
     var user = new User(body);
     user = await user.save();
     let token = await user.generateAuthToken();
-    res.header('x-auth', token).send(user)
+    res.send(token);
+    console.log(res);
   }
   catch (e) {
     res.status(400).send(e);
