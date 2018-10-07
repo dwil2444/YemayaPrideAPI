@@ -20,7 +20,6 @@ routes.post('/signup', urlencodedParser, async (req, res) => {
     var user = new User(body);
     user = await user.save();
     let token = await user.generateAuthToken();
-    //res.header('x-auth', token).send(user)
     res.send(token);
     console.log(res);
   }

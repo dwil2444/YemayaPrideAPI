@@ -1,15 +1,24 @@
 # YemayaPrideAPI
 
+### Visit the beta deployment of this web application at the following url:
+
+http://www.ypride.me
+
+  1. Sign Up Via the forms provided on the page, an authentication token will be sent to the browser. :exclamation::exclamation::exclamation: Save the token :exclamation::exclamation::exclamation:
+
+  2. Add the value returned to the x-auth header of all your requests to the various endpoints.
+
+### Testing the API Endpoints
+
+  1. Resolve project dependencies using npm install
+
+  2. ```npm run start-watch ``` to run the full test suite
+    The server uses separate environments for testing and development. Operations performed on one collection
+    will not affect another
+
+### Help & Community
 The Website serves as the user interfacing frontend for the Yemaya's Pride Project
 
 The responsive layout is built from the creative one-page bootstrap template:
 
 ### https://github.com/BlackrockDigital/startbootstrap-creative
-
-### Visit the web deployment of this website at the following url:
-http://www.ypride.me
-
-
-### or use the API deployed at the following endpoint:
-
-http://www.ypride.me/api
