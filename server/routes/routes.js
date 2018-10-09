@@ -1,4 +1,9 @@
 var env = process.env.NODE_ENV || 'development';
+var mailAuth = require('./mailAuth.json')
+var mailConfig = mailAuth[env];
+Object.keys(mailConfig).forEach((key) => {
+  process.env[key] = mailConfig[key];
+});
 
 const express = require('express');
 const routes = express.Router();
@@ -12,12 +17,6 @@ var {mongoose} = require('./../db/mongoose');
 var {PrideEvent} = require('./../models/events');
 var {User} = require('./../models/user');
 var authentication = require('./../middleware/authentication');
-
-var mailAuth = require('./mailAuth.json')
-var mailConfig = config[env];
-Object.keys(envConfig).forEach((key) => {
-  process.env[key] = envConfig[key];
-});
 
 routes.use(bodyParser.json());
 
@@ -38,7 +37,7 @@ routes.post('/signup', urlencodedParser, async (req, res) => {
       tls: { rejectUnauthorized: false }
     });
     var mailOptions = {
-      from: 'daneandrew16@gmail.com',
+      from: `${process.env.authUser}`,
       to: `${user.email}`,
       subject: 'Thank you for signing up to use our API',
       text: `Here is your registered API key: ${token}`
