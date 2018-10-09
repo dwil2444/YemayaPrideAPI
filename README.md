@@ -4,7 +4,7 @@
 
 http://www.ypride.me
 
-  1. Sign Up Via the forms provided on the page, an authentication token will be sent to the browser. :exclamation::exclamation::exclamation: Save the token :exclamation::exclamation::exclamation:
+  1. Sign Up Via the forms provided on the page, an authentication token will be sent via email. :exclamation::exclamation::exclamation: Save the token :exclamation::exclamation::exclamation:
 
   2. Add the value returned to the x-auth header of all your requests to the various endpoints.
 
