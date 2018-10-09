@@ -21,8 +21,29 @@ routes.post('/signup', urlencodedParser, async (req, res) => {
     var user = new User(body);
     user = await user.save();
     let token = await user.generateAuthToken();
+    var transporter = nodemailer.createTransport({   // refactor this into an external function
+      service: 'gmail',
+      auth: {
+        user: "*********",   // remove username and password to environment variables
+        pass: "*********"
+      },
+      tls: { rejectUnauthorized: false }
+    });
+    var mailOptions = {
+  from: 'daneandrew16@gmail.com',  
+  to: 'daneandrew16@gmail.com',
+  subject: 'Thank you for signing up to use our API',
+  text: `Here is your token: ${token}`
+};
+transporter.sendMail(mailOptions, function(error, info){
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Email sent: ' + info.response);
+  }
+});
     res.send(token);
-    console.log(res);
+    //console.log(res);
   }
   catch (e) {
     res.status(400).send(e);
