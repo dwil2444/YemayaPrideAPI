@@ -1,3 +1,4 @@
 node_modules/
 .DS_Store
 server/config/config.json
+server/routes/mailAuth.json
