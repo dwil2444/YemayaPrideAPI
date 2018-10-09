@@ -1,9 +1,12 @@
 var env = process.env.NODE_ENV || 'development';
-var mailAuth = require('./mailAuth.json')
-var mailConfig = mailAuth[env];
-Object.keys(mailConfig).forEach((key) => {
-  process.env[key] = mailConfig[key];
-});
+if(env === 'development' || env === 'test')
+{
+  var mailAuth = require('./mailAuth.json')
+  var mailConfig = mailAuth[env];
+  Object.keys(mailConfig).forEach((key) => {
+    process.env[key] = mailConfig[key];
+  });
+}
 
 const express = require('express');
 const routes = express.Router();
