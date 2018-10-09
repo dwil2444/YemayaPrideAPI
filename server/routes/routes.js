@@ -1,3 +1,5 @@
+var env = process.env.NODE_ENV || 'development';
+
 const express = require('express');
 const routes = express.Router();
 const _ = require('lodash');
@@ -11,6 +13,12 @@ var {PrideEvent} = require('./../models/events');
 var {User} = require('./../models/user');
 var authentication = require('./../middleware/authentication');
 
+var mailAuth = require('./mailAuth.json')
+var mailConfig = config[env];
+Object.keys(envConfig).forEach((key) => {
+  process.env[key] = envConfig[key];
+});
+
 routes.use(bodyParser.json());
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
@@ -21,27 +29,27 @@ routes.post('/signup', urlencodedParser, async (req, res) => {
     var user = new User(body);
     user = await user.save();
     let token = await user.generateAuthToken();
-    var transporter = nodemailer.createTransport({   // refactor this into an external function
+    var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: "*********",   // remove username and password to environment variables
-        pass: "*********"
+        user: `${process.env.authUser}`,
+        pass: `${process.env.authPass}`
       },
       tls: { rejectUnauthorized: false }
     });
     var mailOptions = {
-  from: 'daneandrew16@gmail.com',  
-  to: 'daneandrew16@gmail.com',
-  subject: 'Thank you for signing up to use our API',
-  text: `Here is your token: ${token}`
-};
-transporter.sendMail(mailOptions, function(error, info){
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Email sent: ' + info.response);
-  }
-});
+      from: 'daneandrew16@gmail.com',
+      to: `${user.email}`,
+      subject: 'Thank you for signing up to use our API',
+      text: `Here is your registered API key: ${token}`
+    };
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
     res.send(token);
     //console.log(res);
   }
