@@ -7,6 +7,7 @@
     "start": "node server/server.js",
     "start-watch": "nodemon server/server.js",
     "test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha server/**/*.test.js --exit",
+    "travis-test": "export NODE_ENV=travis-test || SET \"NODE_ENV=travis-test\" && mocha server/**/*.test.js --exit",
     "test-watch": "nodemon --exec 'npm test'"
   },
   "author": "",
