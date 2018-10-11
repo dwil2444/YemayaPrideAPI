@@ -13,9 +13,11 @@ http://www.ypride.me
   Mocha and SuperTest frameworks are used to perform unit testing on the various endpoints:
   1. Resolve project dependencies using npm install
 
-  2. ```npm run start-watch ``` to run the full test suite.
+  2. ```npm start ``` to start the server.
+
+  3. ```npm run test-watch ``` to run the full test suite.
     The server uses separate environments for testing and development. Operations performed on one collection
-    will not affect another
+    will not affect another.
 
 ### Help & Community
 The Website serves as the user interfacing frontend for the Yemaya's Pride Project

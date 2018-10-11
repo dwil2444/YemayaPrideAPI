@@ -20,7 +20,7 @@ describe('POST /user', () => {
     request(app)
       .post('/api/signup')
       .send({email, password})
-      .expect(200)
+      .expect(302)    // page is redirected
       .expect((res) => {
         //THEN a valid auth token should be returned
         expect(res).toBeTruthy()
