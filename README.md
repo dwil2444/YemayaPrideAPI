@@ -19,6 +19,8 @@ http://www.ypride.me
     The server uses separate environments for testing and development. Operations performed on one collection
     will not affect another.
 
+  [![Build Status](https://travis-ci.org/dwil2444/YemayaPrideAPI.svg?branch=master)](https://travis-ci.org/dwil2444/YemayaPrideAPI)
+
 ### Help & Community
 The Website serves as the user interfacing frontend for the Yemaya's Pride Project
 
