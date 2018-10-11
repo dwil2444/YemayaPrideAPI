@@ -1,6 +1,15 @@
 language: node_js
+
 node_js:
   - 9
   - 8
   - 7
   - node
+
+services:
+  - mongodb
+
+env:
+  - NODE_ENV=test
+
+script: npm start
