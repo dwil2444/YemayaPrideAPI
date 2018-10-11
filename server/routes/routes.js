@@ -53,7 +53,6 @@ routes.post('/signup', urlencodedParser, async (req, res) => {
     }
   });
     res.status(200).redirect('/');
-    console.log(res);
   }
   catch (e) {
     res.status(400).send(e);
