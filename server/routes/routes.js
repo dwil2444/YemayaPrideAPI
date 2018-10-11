@@ -52,8 +52,7 @@ routes.post('/signup', urlencodedParser, async (req, res) => {
       console.log('Email sent: ' + info.response);
     }
   });
-    res.send(token);
-    //console.log(res);
+    res.status(200).redirect('/');
   }
   catch (e) {
     res.status(400).send(e);
