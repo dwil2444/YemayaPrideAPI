@@ -12,4 +12,4 @@ services:
 env:
   - NODE_ENV=travis
 
-script: npm start
+script: npm test
