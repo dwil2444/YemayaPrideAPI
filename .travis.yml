@@ -10,6 +10,6 @@ services:
   - mongodb
 
 env:
-  - NODE_ENV=test
+  - NODE_ENV=travis
 
 script: npm start
