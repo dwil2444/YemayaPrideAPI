@@ -18,8 +18,9 @@ http://www.ypride.me
   3. ```npm run test-watch ``` to run the full test suite.
     The server uses separate environments for testing and development. Operations performed on one collection
     will not affect another.
-
+  
   [![Build Status](https://travis-ci.org/dwil2444/YemayaPrideAPI.svg?branch=master)](https://travis-ci.org/dwil2444/YemayaPrideAPI)
+  [![License](https://img.shields.io/github/license/dwil2444/YemayaPrideAPI.svg?style=flat)](https://github.com/dwil2444/YemayaPrideAPI/blob/master/LICENSE)
 
 ### Help & Community
 The Website serves as the user interfacing frontend for the Yemaya's Pride Project
